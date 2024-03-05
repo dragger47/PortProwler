@@ -57,6 +57,7 @@
     }
 
     .text {
+        margin-top: 10px;
         flex: 1;
         padding-right: 20px;
         overflow: hidden;
@@ -73,13 +74,14 @@
 
     .image-container {
         max-width: 100%;
-  height: auto;
+        height: fit-content;
         overflow: hidden;
         position: relative;
+        margin: auto;
         border-radius: 8px;
         box-shadow: 10px 15px 15px rgba(85, 83, 83, 0.7);
         padding: 0%;
-        animation: floatImage 2s ease-in-out infinite;
+        animation: floatImage 2s ease-in-out infinite ;
     }
 
     @media (max-width: 900px) {
@@ -88,11 +90,12 @@
             padding: 20px;
         }
 
-        .text, .image-container{
+        .text,
+        .image-container {
             width: 100%;
             padding: 0;
         }
-        
+
     }
 
 
@@ -132,27 +135,34 @@
         max-width: 12rem;
     }
 
-   
+
 
     @media (max-width: 767px) {
-    
+
         #sidebar {
             display: inline-block;
             justify-content: space-around;
             align-items: center;
         }
     }
+
     @keyframes fadeIn {
         from {
             opacity: 0;
         }
+
         to {
             opacity: 1;
         }
     }
 
     .fade-in {
-        animation: fadeIn 1s ease-in-out; /* Adjust duration and timing function as needed */
+        animation: fadeIn 1s ease-in-out;
+        /* Adjust duration and timing function as needed */
+    }
+
+    .bg-gradient {
+        background: linear-gradient(to bottom right, #151c29, #031330);
     }
 </style>
 
@@ -218,32 +228,138 @@
             </div>
 
             <main class="overflow-y-auto max-height-screen">
+                <div
+                    class="bg-gradient-to-br from-gray-800 to-gray-900 text-white lg:flex items-center justify-center min-h-fit-content p-10">
+                    <section class="w-full lg:w-5/12 animate__animated animate__fadeIn animate__delay-1s text-center">
+                        <h1 class="text-5xl font-extrabold mb-4">Discover. Scan. Secure.</h1>
+                        <p class="text-lg text-gray-300">
+                            Introducing PortProwler - because apparently, Nmap isn't simple enough for people like me.
+                        </p>
+                    </section>
+                    <section
+                        class="w-full lg:w-7/12 animate__animated animate__fadeIn animate__delay-1s p-7 text-center ">
+                        <p class="text-sm ">
+                            Ever tried using Nmap and felt like you were deciphering an ancient manuscript? Fear not!
+                            PortProwler is here to turn your network exploration into a stroll in the digital park.
+                            Because who needs simplicity when you can have a GUI tool to do it for you, right?
+
+                            It's like having a personal assistant for your Nmap adventures, because let's face it, even
+                            the pros need a sidekick sometimes. PortProwler - making Nmap user-friendly for those of us
+                            who can't tell a SYN scan from a cat scan. 🐱🔍
+                        </p>
+
+                        <button
+                            class="bg-gradient-to-br from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold px-6 py-3 mt-6 rounded-full">
+                            Try the Tool (if you dare)
+                        </button>
+                    </section>
+                </div>
+
+
                 <!-- Command Section -->
                 <!--  page content -->
-                <div class="section">
+                <div class="h-min-screen section">
+                    <div class="animate__animated animate__fadeIn animate__delay-1s section">
                     <div class="text">
                         <span style="color: #0A84FF;">root@kali:~#</span> <span id="command"></span>
                         <br>
-                        <div id="cmdoutput" class="fade-in" style="display: none;">
-                        <span style="color: #FF4D4D;">Two years in infosec, and your command-line skills are still on
-                            training wheels? Maybe consider a career switch – ever tried being a professional guesser?
-                            You are the defination of a functioning idiot, so I am updating the argument passer
-                            logic</span>
                         <br>
-                        <pre class="text-green-300">
- if user == "{$mr_typo}": # You my dear lost child                        
-    go_to_catch_block() # Cause, u ain't it chief
+                        <div id="cmdoutput" class="fade-in" style="display: none;">
+                            <span style="color: #FF4D4D;">Two years in infosec, and your command-line skills are still
+                                on
+                                training wheels? Maybe consider a career switch – ever tried being a professional
+                                guesser?
+                                You are the defination of a functioning idiot, so I am updating the argument passer
+                                logic</span>
+                            <br>
+                            <br>
+                            <pre class="text-green-300 text-wrap w-auto">
+ # You my dear lost child        
+ if user == "{$mr_typo}":
+     go_to_catch_block() 
+     # Cause, u ain't it chief
  else:
-    normal_exec() #for users with IQ > room temprature
-                          </pre>
-                          </div>
-                           </div>
+      #for users with IQ > room temperature
+      normal_exec() 
+                           </pre>
+
+                        </div>
+                    </div>
                     <div class="image-container">
                         <img src="https://europe1.discourse-cdn.com/hackthebox/optimized/3X/c/3/c3c507b374fa3d512ee2c5f8372963a5bf281131_2_690x223.png"
                             alt="Floating Image">
                     </div>
                 </div>
-   
+                </div>
+                
+                <div class="container mx-auto p-8 bg-gradient rounded-lg shadow-lg">
+                   <div class="animate__animated animate__fadeIn animate__delay-2s">
+                    <h1 class="text-4xl font-bold mb-6 text-center text-white">Features that even your grandma could love</h1>
+
+                    <div class="flex justify-center" style="color: wheat;">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <!-- Feature 1 -->
+                            <div class="flex items-center mb-4">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <div>
+                                    <h2 class="text-2xl font-semibold mb-2">User-friendly interface</h2>
+                                    <p>Because command lines are so last century.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature 2 -->
+                            <div class="flex items-center mb-4">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <div>
+                                    <h2 class="text-2xl font-semibold mb-2">Nmap Command Explanation</h2>
+                                    <p>Understand the power of Nmap commands effortlessly.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature 3 -->
+                            <div class="flex items-center mb-4">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <div>
+                                    <h2 class="text-2xl font-semibold mb-2">Run command from browser</h2>
+                                    <p>Execute commands directly from the convenience of your browser.</p>
+                                </div>
+                            </div>
+
+                            <!-- Feature 4 -->
+                            <div class="flex items-center mb-4">
+                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                </svg>
+                                <div>
+                                    <h2 class="text-2xl font-semibold mb-2">Report analysis</h2>
+                                    <p>Receive detailed and insightful analysis reports at your fingertips.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="text-lg mt-6 text-center text-white">
+                        So, why settle for being an Nmap novice when you can be a PortProwler pro? Discover. Scan.
+                        Secure. The seas
+                        of your network await your command!
+                    </p>
+                    </div>
+                </div>
+
             </main>
 
         </div>
@@ -265,30 +381,30 @@
         typeWriterEffect('command', txt);
         setTimeout(function () {
             document.getElementById('cmdoutput').style.display = 'block';
-            }, txt.length * 55 + 1000); 
-  
+        }, txt.length * 65 + 1000);
+
         function typeWriterEffect(elementId, text) {
-          const element = document.getElementById(elementId);
-          
-          if (!element) {
-            console.error(`Element with ID '${elementId}' not found.`);
-            return;
-          }
-        
-          let index = 0;
-          const speed = 50;
-        
-          function type() {
-            if (index < text.length) {
-              element.innerHTML += text.charAt(index);
-              index++;
-              setTimeout(type, speed);
+            const element = document.getElementById(elementId);
+
+            if (!element) {
+                console.error(`Element with ID '${elementId}' not found.`);
+                return;
             }
-          }
-          type();
+
+            let index = 0;
+            const speed = 65;
+
+            function type() {
+                if (index < text.length) {
+                    element.innerHTML += text.charAt(index);
+                    index++;
+                    setTimeout(type, speed);
+                }
+            }
+            type();
         }
     </script>
-       <footer style="background-color: #1f1d1d;" class="text-white text-center p-4">
+    <footer style="background-color: #1f1d1d;" class="text-white text-center p-4">
         <p>&copy; 2024 PortProwler. All rights reserved.</p>
     </footer>
 
