@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <title>Professional Vertical Navbar</title>
+</head>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    ul {
+        list-style-type: square;
+        margin-bottom: 5px;
+    }
+
+    .header {
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 400;
+        font-size: large;
+        font-style: normal;
+        background-color: #333;
+        padding: 20px;
+        /* Increased height */
+        color: white;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+        line-height: 1.5;
+    }
+
+    .section {
+        display: flex;
+        width: 100%;
+        margin: 0 auto;
+        padding: 10px;
+        box-sizing: border-box;
+        background-color: rgb(52, 96, 153);
+        background-image: radial-gradient(rgba(39, 41, 39, 0.75), black 120%);
+        background: repeating-linear-gradient(0deg,
+                rgba(black, 0.15),
+                rgba(black, 0.15) 1px,
+                transparent 1px,
+                transparent 2px);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        color: white;
+        position: relative;
+    }
+
+    .text {
+        flex: 1;
+        padding-right: 20px;
+        overflow: hidden;
+    }
+
+    .text h2 {
+        color: #b6afaf;
+    }
+
+    .text p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .image-container {
+        max-width: 100%;
+  height: auto;
+        overflow: hidden;
+        position: relative;
+        border-radius: 8px;
+        box-shadow: 10px 15px 15px rgba(85, 83, 83, 0.7);
+        padding: 0%;
+        animation: floatImage 2s ease-in-out infinite;
+    }
+
+    @media (max-width: 900px) {
+        .section {
+            flex-direction: column;
+            padding: 20px;
+        }
+
+        .text, .image-container{
+            width: 100%;
+            padding: 0;
+        }
+        
+    }
+
+
+    @keyframes floatImage {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .text {
+        animation: fadeIn 1s ease-out;
+    }
+
+
+    .header span {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .header:hover {
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+        .header {
+            font-size: 18px;
+        }
+    }
+
+    #sidebar {
+        min-width: 4rem;
+        max-width: 12rem;
+    }
+
+   
+
+    @media (max-width: 767px) {
+    
+        #sidebar {
+            display: inline-block;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease-in-out; /* Adjust duration and timing function as needed */
+    }
+</style>
+
+<body class="font-sans bg-gray-100">
+
+    <div class="flex h-screen bg-gray-200">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-2 bg-gray-900 text-white p-4 transition-all duration-300">
+            <div class="flex flex-col space-y-4">
+                <!-- Sidebar Icons -->
+                <div class="relative group flex items-center border-b-2 border-gray-300 pb-2">
+                    <button id="icon1" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
+                        <svg fill="#9ec3ff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
+                            viewBox="0 0 442.04 442.04" xml:space="preserve" stroke="#9ec3ff" transform="rotate(0)">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203 c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219 c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367 c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021 c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212 c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071 c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z">
+                                        </path>
+                                    </g>
+                                    <g>
+                                        <path
+                                            d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188 c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993 c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5 s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z">
+                                        </path>
+                                    </g>
+                                    <g>
+                                        <path
+                                            d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                    <span class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">NMAP
+                        GUI</span>
+                </div>
+                <div class="relative group flex items-center">
+                    <button id="icon2" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
+                        📁
+                    </button>
+                    <span
+                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Files</span>
+                </div>
+                <div class="relative group flex items-center">
+                    <button id="icon3" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
+                        🔍
+                    </button>
+                    <span
+                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Search</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <div class="flex-1 flex flex-col overflow-hidden relative z-10">
+            <div class="header">
+                PortProwler
+            </div>
+
+            <main class="overflow-y-auto max-height-screen">
+                <!-- Command Section -->
+                <!--  page content -->
+                <div class="section">
+                    <div class="text">
+                        <span style="color: #0A84FF;">root@kali:~#</span> <span id="command"></span>
+                        <br>
+                        <div id="cmdoutput" class="fade-in" style="display: none;">
+                        <span style="color: #FF4D4D;">Two years in infosec, and your command-line skills are still on
+                            training wheels? Maybe consider a career switch – ever tried being a professional guesser?
+                            You are the defination of a functioning idiot, so I am updating the argument passer
+                            logic</span>
+                        <br>
+                        <pre class="text-green-300">
+ if user == "{$mr_typo}": # You my dear lost child                        
+    go_to_catch_block() # Cause, u ain't it chief
+ else:
+    normal_exec() #for users with IQ > room temprature
+                          </pre>
+                          </div>
+                           </div>
+                    <div class="image-container">
+                        <img src="https://europe1.discourse-cdn.com/hackthebox/optimized/3X/c/3/c3c507b374fa3d512ee2c5f8372963a5bf281131_2_690x223.png"
+                            alt="Floating Image">
+                    </div>
+                </div>
+   
+            </main>
+
+        </div>
+    </div>
+
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const topIcon = document.getElementById('icon1');
+        topIcon.addEventListener('click', () => {
+            sidebar.classList.toggle('w-16');
+            sidebar.classList.toggle('w-40');
+
+            const labels = document.querySelectorAll('#sidebar span.text-xs');
+            labels.forEach(label => label.classList.toggle('opacity-0'));
+        });
+
+
+        var txt = 'namp mycomputer --script=please_help_me'
+        typeWriterEffect('command', txt);
+        setTimeout(function () {
+            document.getElementById('cmdoutput').style.display = 'block';
+            }, txt.length * 55 + 1000); 
+  
+        function typeWriterEffect(elementId, text) {
+          const element = document.getElementById(elementId);
+          
+          if (!element) {
+            console.error(`Element with ID '${elementId}' not found.`);
+            return;
+          }
+        
+          let index = 0;
+          const speed = 50;
+        
+          function type() {
+            if (index < text.length) {
+              element.innerHTML += text.charAt(index);
+              index++;
+              setTimeout(type, speed);
+            }
+          }
+          type();
+        }
+    </script>
+       <footer style="background-color: #1f1d1d;" class="text-white text-center p-4">
+        <p>&copy; 2024 PortProwler. All rights reserved.</p>
+    </footer>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+</body>
+
+</html>

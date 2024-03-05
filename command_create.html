@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <title>Professional Vertical Navbar</title>
+</head>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    ul {
+        list-style-type: square;
+        margin-bottom: 5px;
+    }
+
+    .header {
+        font-family: "Archivo Black", sans-serif;
+        font-weight: 400;
+        font-size: large;
+        font-style: normal;
+        background-color: #333;
+        padding: 20px;
+        /* Increased height */
+        color: white;
+        text-align: center;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s ease;
+        line-height: 1.5;
+    }
+
+    
+
+    #commandResult {
+        background-color: #070404;
+        padding: 10px;
+        border: 1px solid #b1a7a7;
+        border-top: 20px solid #b8adad;
+        border-radius: 10px;
+
+        color: wheat;
+        font-weight: bold;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    .header span {
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .header:hover {
+        box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    @media (max-width: 600px) {
+        .header {
+            font-size: 18px;
+        }
+    }
+
+    #sidebar {
+        min-width: 4rem;
+        max-width: 12rem;
+    }
+
+    #commandSection {
+        width: 100%;
+        height: 100%;
+        max-width: 30rem;
+    }
+
+    #formSection {
+        width: 100%;
+        height: 100%;
+        max-width: 40rem;
+    }
+
+    .commandcomponent {
+        font-family: Arial, sans-serif;
+        color: #ffffff;
+        background-color: #4f4343;
+    }
+
+    code {
+        background-color: #f4f4f4;
+        border: 1px solid #201a24;
+        color: #160028;
+        font-weight: bold;
+        padding: 10px;
+        display: block;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .flaginfo {
+        background-color: #313131;
+        overflow: auto;
+        font-size: 16px;
+        max-height: 400px;
+        -ms-overflow-style: none;
+        /* For Internet Explorer, Edge */
+        scrollbar-width: none;
+        /* For Firefox */
+        padding: 16px;
+        color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+
+    .flaginfo h1 {
+        font-size: 24px;
+        color: #c4bcbccc;
+        margin-bottom: 16px;
+    }
+
+    .flaginfo p {
+        margin-bottom: 10px;
+    }
+
+    .flaginfo ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .flaginfo li {
+        margin-bottom: 8px;
+    }
+
+    .flaginfo strong {
+        background-color: #fffcfcb3;
+        color: #313131;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+    }
+
+    /* Hide scrollbar for Webkit browsers (Chrome, Safari) */
+    .flaginfo::-webkit-scrollbar {
+        display: none;
+    }
+
+
+    @media (max-width: 767px) {
+        #commandSection {
+            width: auto;
+            height: fit-content;
+        }
+
+        #formSection {
+            width: auto;
+            height: 100%;
+        }
+
+        #sidebar {
+            display: inline-block;
+            justify-content: space-around;
+            align-items: center;
+        }
+    }
+</style>
+
+<body class="font-sans bg-gray-100">
+
+    <div class="flex h-screen bg-gray-200">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="w-2 bg-gray-900 text-white p-4 transition-all duration-300">
+            <div class="flex flex-col space-y-4">
+                <!-- Sidebar Icons -->
+                <div class="relative group flex items-center border-b-2 border-gray-300 pb-2">
+                    <button id="icon1" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
+                        <svg fill="#9ec3ff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
+                            viewBox="0 0 442.04 442.04" xml:space="preserve" stroke="#9ec3ff" transform="rotate(0)">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <g>
+                                    <g>
+                                        <path
+                                            d="M221.02,341.304c-49.708,0-103.206-19.44-154.71-56.22C27.808,257.59,4.044,230.351,3.051,229.203 c-4.068-4.697-4.068-11.669,0-16.367c0.993-1.146,24.756-28.387,63.259-55.881c51.505-36.777,105.003-56.219,154.71-56.219 c49.708,0,103.207,19.441,154.71,56.219c38.502,27.494,62.266,54.734,63.259,55.881c4.068,4.697,4.068,11.669,0,16.367 c-0.993,1.146-24.756,28.387-63.259,55.881C324.227,321.863,270.729,341.304,221.02,341.304z M29.638,221.021 c9.61,9.799,27.747,27.03,51.694,44.071c32.83,23.361,83.714,51.212,139.688,51.212s106.859-27.851,139.688-51.212 c23.944-17.038,42.082-34.271,51.694-44.071c-9.609-9.799-27.747-27.03-51.694-44.071 c-32.829-23.362-83.714-51.212-139.688-51.212s-106.858,27.85-139.688,51.212C57.388,193.988,39.25,211.219,29.638,221.021z">
+                                        </path>
+                                    </g>
+                                    <g>
+                                        <path
+                                            d="M221.02,298.521c-42.734,0-77.5-34.767-77.5-77.5c0-42.733,34.766-77.5,77.5-77.5c18.794,0,36.924,6.814,51.048,19.188 c5.193,4.549,5.715,12.446,1.166,17.639c-4.549,5.193-12.447,5.714-17.639,1.166c-9.564-8.379-21.844-12.993-34.576-12.993 c-28.949,0-52.5,23.552-52.5,52.5s23.551,52.5,52.5,52.5c28.95,0,52.5-23.552,52.5-52.5c0-6.903,5.597-12.5,12.5-12.5 s12.5,5.597,12.5,12.5C298.521,263.754,263.754,298.521,221.02,298.521z">
+                                        </path>
+                                    </g>
+                                    <g>
+                                        <path
+                                            d="M221.02,246.021c-13.785,0-25-11.215-25-25s11.215-25,25-25c13.786,0,25,11.215,25,25S234.806,246.021,221.02,246.021z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                    <span class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">NMAP
+                        GUI</span>
+                </div>
+                <div class="relative group flex items-center">
+                    <button id="icon2" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
+                        📁
+                    </button>
+                    <span
+                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Files</span>
+                </div>
+                <div class="relative group flex items-center">
+                    <button id="icon3" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
+                        🔍
+                    </button>
+                    <span
+                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Search</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Content -->
+        <div class="flex-1 flex flex-col overflow-hidden relative z-10">
+            <div class="header">
+                PortProwler
+            </div>
+
+            <main class="overflow-y-auto max-height-screen">
+                <!-- Command Section -->
+                <!--  page content -->
+               
+                <div class="sm:flex-row md:flex overflow-x-hidden overflow-y-auto bg-gray-100">
+                    <div id="commandSection" class="w-full md:w-5/12 p-4 md:p-6 commandcomponent">
+                        <h2 class="text-2xl font-semibold mb-4">Generated Command</h2>
+                        <pre id="commandResult" class="whitespace-pre-wrap"> Create a Command using the form</pre>
+                        <div class="flaginfo">
+
+                            <h1>Nmap Port Scanning Overview</h1>
+                            <p>Nmap supports various port scanning methods to discover open ports and services on target
+                                machines. Here's a summary of key scanning methods:</p>
+                            <ul>
+                                <li><strong>TCP SYN (Stealth) Scan (-sS):</strong> Fastest scan for popular TCP ports.
+                                    Stealthier than connect scan, works on all TCP stacks.</li>
+                                <li><strong>TCP Connect Scan (-sT):</strong> Uses system call to scan machines.
+                                    Preferred
+                                    for unprivileged Unix users and IPv6 targets.</li>
+                                <li><strong>UDP Scan (-sU):</strong> Scans UDP ports to find security vulnerabilities.
+                                </li>
+                                <li><strong>TCP FIN, NULL, and Xmas Scans (-sF, -sN, -sX):</strong> Special purpose
+                                    scans
+                                    for bypassing firewalls. Some systems, especially Windows, may not exhibit expected
+                                    behavior.</li>
+                                <li><strong>TCP ACK Scan (-sA):</strong> Maps out firewall rulesets. Cannot distinguish
+                                    open
+                                    from closed ports.</li>
+                                <li><strong>TCP Window Scan (-sW):</strong> Similar to ACK scan, detects open vs. closed
+                                    ports on certain machines.</li>
+                                <li><strong>TCP Maimon Scan (-sM):</strong> Firewall-evading scan, similar to FIN scan
+                                    with
+                                    ACK flag. Works against fewer systems than FIN scan.</li>
+                                <li><strong>TCP Idle Scan (-sI &lt;zombie host&gt;):</strong> Stealthiest scan
+                                    exploiting
+                                    trusted IP address relationships. Slow and complex.</li>
+                                <li><strong>IP Protocol Scan (-sO):</strong> Determines supported IP protocols (TCP,
+                                    ICMP,
+                                    IGMP, etc.).</li>
+                                <li><strong>TCP FTP Bounce Scan (-b &lt;FTP bounce proxy&gt;):</strong> Deprecated
+                                    method
+                                    tricking FTP servers for port scans.</li>
+                            </ul>
+                            <p><strong>Port Selection Examples:</strong> Specify ports with -p option using numbers,
+                                names,
+                                ranges, or protocols.</p>
+                            <p><strong>Timing-related Options:</strong> Control scan times with options like -T0 through
+                                -T5, --min-rtt-timeout, --max-rtt-timeout, etc.</p>
+                            <p><strong>Output Format and Verbosity Options:</strong> Choose output format with -oN, -oG,
+                                -oX. Increase verbosity with -v or debugging with -d.</p>
+                            <p><strong>Firewall and IDS Evasion Options:</strong> Numerous options for evading firewalls
+                                and
+                                IDSs.</p>
+                            <p><strong>Specifying Targets:</strong> Specify target hosts using names, IP addresses,
+                                files,
+                                or even randomly generated ones.</p>
+                            <p><strong>Miscellaneous Options:</strong> -6 for IPv6 scanning, -r for randomizing port
+                                scan
+                                order, -Pn to skip ping test.</p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Form Section -->
+                    <div id="formSection" class="w-full md:w-2/3 p-4 md:p-6 h-full">
+                        <h1 class="text-3xl font-semibold mb-4">Nmap Web GUI</h1>
+                        <p class="mb-4">Welcome to the Nmap Web GUI! Use the form below to configure your Nmap scan:</p>
+
+                        <form id="scanForm" class="mb-8">
+                            <label class="block mb-2">Target: <input type="text" id="target" name="target" required
+                                    class="border border-gray-300 p-2 w-full"></label>
+                            <label class="block mb-2">Scan Type:
+                                <select id="scanType" name="scanType" class="border border-gray-300 p-2 w-full">
+                                    <option value="sS">TCP SYN Scan</option>
+                                    <option value="sT">Connect Scan</option>
+                                    <option value="sU">UDP Scan</option>
+                                    <option value="sF">TCP FIN Scan</option>
+                                </select>
+                            </label>
+                            <label class="block mb-2">Port Range: <input type="text" id="portRange" name="portRange"
+                                    placeholder="e.g., 1-1000" required
+                                    class="border border-gray-300 p-2 w-full"></label>
+                            <label class="block mb-2">Additional Options: <input type="text" id="options" name="options"
+                                    placeholder="e.g., -sV --version-intensity 2"
+                                    class="border border-gray-300 p-2 w-full"></label>
+                            <button type="button" onclick="submitForm()"
+                                class="bg-blue-500 text-white px-4 py-2 rounded">See created Command to Run
+                                manually</button>
+                        </form>
+
+                        <div id="result"></div>
+
+                        <br>
+
+                        <button onclick="window.location.href='./Result.html'"
+                            class="bg-blue-500 text-white px-4 py-2 rounded">View Results</button>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle expanding sidebar on topmost icon click
+        const sidebar = document.getElementById('sidebar');
+        const topIcon = document.getElementById('icon1');
+
+        topIcon.addEventListener('click', () => {
+            sidebar.classList.toggle('w-16');
+            sidebar.classList.toggle('w-40');
+
+            // Toggle labels visibility
+            const labels = document.querySelectorAll('#sidebar span.text-xs');
+            labels.forEach(label => label.classList.toggle('opacity-0'));
+        });
+
+        function submitForm() {
+            // Dummy data for testing
+            var dummyData = {
+                command: 'nmap -sS -p 1-1000 192.168.1.1',
+                result: 'Scan complete! 3 open ports found.'
+            };
+
+            var element = document.getElementById('commandResult');
+            element.innerHTML = '';
+            var text = 'Command: ' + dummyData.command + '\nResult: ' + dummyData.result;
+            var speed = 50;
+
+            function type(i) {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(function () {
+                        type(i);
+                    }, speed);
+                }
+            }
+
+            type(0);
+        }
+    </script>
+
+</body>
+
+</html>

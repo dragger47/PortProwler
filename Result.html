@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styleresult.css">
+    <meta charset="UTF-8">
+    <title>Nmap Results</title>
+
+   
+
+    <script>
+        // this is just a little function to make the type writing effect 
+        // ignore this for now (-_-) 
+        document.addEventListener('DOMContentLoaded', function () {
+            const pre = document.querySelector('pre');
+            const text = pre.textContent.trim();
+            pre.textContent = '';
+
+            let index = 0;
+
+            function type() {
+                pre.textContent += text[index];
+                index++;
+                if (index < text.length) {
+                    setTimeout(type, 30); 
+                }
+            }
+
+            type();
+        });
+    </script>
+</head>
+
+<body>
+
+    <h1>Nmap Scan Results</h1>
+
+    <pre>
+        scanning in progress |||||||||||||||||||...............
+        Starting Nmap 7.91 ( https://nmap.org ) at 2024-02-07 15:30 UTC
+        Nmap scan report for example.com (192.168.1.1)
+        Host is up (0.0023s latency).
+        Not shown: 998 closed ports
+        PORT     STATE SERVICE
+        22/tcp   open  ssh
+        80/tcp   open  http
+        443/tcp  open  https
+
+        Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
+    </pre>
+
+    <br>
+
+    <table border="1" cellspacing="0" cellpadding="5">
+        <tr>
+            <th>PORT</th>
+            <th>STATE</th>
+            <th>SERVICE</th>
+        </tr>
+        <tr>
+            <td>22/tcp</td>
+            <td>open</td>
+            <td>ssh</td>
+        </tr>
+        <tr>
+            <td>80/tcp</td>
+            <td>open</td>
+            <td>http</td>
+        </tr>
+        <tr>
+            <td>443/tcp</td>
+            <td>open</td>
+            <td>https</td>
+        </tr>
+    </table>
+
+    <br>
+    
+    <h1> TASK 1 3 PARTS</h1>
+     <p style="color: blue;size: 16px; font-family: 'Times New Roman', Times, serif;" > This is para 1 with inline styling asd asd ad asnkdan jkdn asjkd ans djlas djk a d asljd asj djla  jas dj as dj</p>
+      <p class="para2"> this is a nice little 2 para with internal styling</p>
+      <p style="color: green; size: 9px; font-style: italic;font-family: 'Times New Roman', Times, serif;">This is a  new para with inline styling task 1 part 3</p>
+      <h1> TASK 2</h1>
+      <p class="para2"> this is a nice little 2 para with internal styling
+      <span class="para3" >This is a  new para with inline styling task 1 part 3</span></p>
+      
+      <button>Download Results</button>
+
+</body>
+
+</html>
