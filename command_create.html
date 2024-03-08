@@ -16,6 +16,8 @@
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         height: 100%;
+        background-color: #530000;
+        
     }
 
     ul {
@@ -46,13 +48,14 @@
     #commandResult {
         background-color: #070404;
         padding: 10px;
-        border: 1px solid #b1a7a7;
+        border: 4px solid #b1a7a7;
         border-top: 20px solid #b8adad;
         border-radius: 10px;
-
+        border-bottom: 2px solid #dedede;;
+        border-bottom-left-radius: 0 ;
+        border-bottom-right-radius: 0 ;
         color: wheat;
         font-weight: bold;
-        border-radius: 5px;
         white-space: pre-wrap;
         font-family: 'Courier New', Courier, monospace;
 
@@ -78,13 +81,14 @@
     }
 
     #commandSection {
+        display: flex;
+        flex-direction: column;
         min-height: 100%;
     }
 
     #formSection {
         width: 100%;
-        height: 100%;
-        max-width: 40rem;
+        margin: auto;
     }
 
     .commandcomponent {
@@ -95,7 +99,7 @@
 
     code {
         background-color: #f4f4f4;
-        border: 1px solid #201a24;
+        border: 1px solid #baa7c700;
         color: #160028;
         font-weight: bold;
         padding: 10px;
@@ -108,14 +112,18 @@
         background-color: #313131;
         overflow: auto;
         font-size: 16px;
-        max-height: 400px;
+        max-height: 350px;
         -ms-overflow-style: none;
+        border: 4px solid #b1a7a7;
+        border-top: 0;
+        border-radius: 4px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
         /* For Internet Explorer, Edge */
         scrollbar-width: none;
         /* For Firefox */
         padding: 16px;
         color: #fff;
-        border-radius: 8px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
@@ -160,7 +168,7 @@
         }
 
         #formSection {
-            width: auto;
+            width: 100%;
             height: 100%;
         }
 
@@ -172,11 +180,11 @@
     }
 </style>
 
-<body class="font-sans bg-gray-100">
+<body >
 
-    <div class="flex h-screen bg-gray-200">
+    <div class="flex h-screen bg-gray-900">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-2 bg-gray-900 text-white p-4 transition-all duration-300">
+        <aside id="sidebar" class="m-auto w-2 bg-gray-900 text-white p-4 transition-all duration-300">
             <div class="flex flex-col space-y-4">
                 <!-- Sidebar Icons -->
                 <div class="relative group flex items-center border-b-2 border-gray-300 pb-2">
@@ -233,12 +241,12 @@
                 PortProwler
             </div>
 
-            <main class="overflow-y-auto max-height-screen">
+            <main class="overflow-y-auto max-height-screen bg-blue-900">
                 <!-- Command Section -->
                 <!--  page content -->
 
                 <div class="sm:flex-row md:flex overflow-x-hidden overflow-y-auto bg-gray-100 m-auto">
-                    <div id="commandSection" class="w-full md:w-6/12 p-4 md:p-6 commandcomponent">
+                    <div id="commandSection" class="w-full md:w-5/12 p-4 md:p-6 commandcomponent">
                         <h2 class="text-2xl font-semibold mb-4">Generated Command</h2>
                         <pre id="commandResult" class="whitespace-pre-wrap"> Create a Command using the form</pre>
                         <div class="flaginfo">
@@ -294,20 +302,22 @@
                                 order, -Pn to skip ping test.</p>
 
                         </div>
-
-
+                        <button onclick="window.location.href='./Result.html'" class="mt-3 bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded">
+                            Run the generated Command
+                          </button>
                     </div>
 
                     <!-- Form Section -->
-                    <div id="formSection" class="w-screen h-full">
-                        <form onsubmit="generateNmapCommand(); return false;">
+                    
+                    <div id="formSection" class=" w-full md:w-7/12 bg-gray-900">
+                        <form onsubmit="generateNmapCommand(); return false;" class="m-auto">
 
                             <div id="accordion-collapse" data-accordion="collapse">
 
                                 <!-- section 1 -->
                                 <h2 id="accordion-collapse-heading-1">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-blue-500 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
                                         data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
                                         style="background-color: rgb(41, 50, 77); color: wheat;"
                                         aria-controls="accordion-collapse-body-1">
@@ -324,33 +334,34 @@
                                     aria-labelledby="accordion-collapse-heading-1">
                                     <div class="p-5 border border-b-0 border-gray-200 text-white"
                                         style="background-color: rgb(41, 50, 77);">
+                                        <div class="flex flex-col sm:flex-row  sm:space-x-4">
+                                            <!-- IP Address/Domain -->
+                                            <div class="mb-4 md:w-7/12">
+                                                <label for="ipDomain" class="block text-sm font-medium">IP
+                                                    Address/Domain:</label>
+                                                <input type="text" id="ipDomain" name="ipDomain"
+                                                    class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
+                                            </div>
 
-                                        <!-- IP Address/Domain -->
-                                        <div class="mb-4">
-                                            <label for="ipDomain" class="block text-sm font-medium">IP
-                                                Address/Domain:</label>
-                                            <input type="text" id="ipDomain" name="ipDomain"
-                                                class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
+                                            <!-- Scan Type -->
+                                            <div class="mb-4">
+                                                <label for="scanType" class="block text-sm font-medium">Scan
+                                                    Type:</label>
+                                                <select id="scanType" name="scanType"
+                                                    class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
+                                                    <option value="S">TCP SYN Scan</option>
+                                                    <option value="T">TCP Connect Scan</option>
+                                                    <option value="U">UDP Scan</option>
+                                                    <option value="A">ACK Scan</option>
+                                                    <option value="F">FIN Scan</option>
+                                                    <option value="X">Xmas Scan</option>
+                                                    <option value="N">Null Scan</option>
+                                                    <option value="n">Ping Scan</option>
+                                                    <option value="A">Aggressive Scan</option>
+                                                    <option value="I">Idle Scan</option>
+                                                </select>
+                                            </div>
                                         </div>
-
-                                        <!-- Scan Type -->
-                                        <div class="mb-4">
-                                            <label for="scanType" class="block text-sm font-medium">Scan Type:</label>
-                                            <select id="scanType" name="scanType"
-                                                class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
-                                                <option value="S">TCP SYN Scan</option>
-                                                <option value="T">TCP Connect Scan</option>
-                                                <option value="U">UDP Scan</option>
-                                                <option value="A">ACK Scan</option>
-                                                <option value="F">FIN Scan</option>
-                                                <option value="X">Xmas Scan</option>
-                                                <option value="N">Null Scan</option>
-                                                <option value="n">Ping Scan</option>
-                                                <option value="A">Aggressive Scan</option>
-                                                <option value="I">Idle Scan</option>
-                                            </select>
-                                        </div>
-
                                         <!-- Host Discovery -->
                                         <div class="mb-4">
                                             <input type="checkbox" id="enableHostDiscovery" name="enableHostDiscovery"
@@ -387,7 +398,7 @@
                                 <!-- section 2 -->
                                 <h2 id="accordion-collapse-heading-2">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 focus:ring-4 focus:ring-blue-500 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
                                         data-accordion-target="#accordion-collapse-body-2" aria-expanded="false"
                                         style="background-color: rgb(41, 50, 77); color: wheat;"
                                         aria-controls="accordion-collapse-body-2">
@@ -404,30 +415,33 @@
                                     <div class="p-5 border border-b-0 border-gray-200 text-white"
                                         style="background-color: rgb(41, 50, 77);">
                                         <!-- Scan Speed -->
-                                        <div class="mb-4">
-                                            <label for="scanSpeed" class="block text-sm font-medium">Scan Speed:</label>
-                                            <select id="scanSpeed" name="scanSpeed"
-                                                class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
-                                                <option value="-T0">Paranoid</option>
-                                                <option value="-T1">Sneaky</option>
-                                                <option value="-T2">Polite</option>
-                                                <option value="-T3">Normal</option>
-                                                <option value="-T4">Aggressive</option>
-                                                <option value="-T5">Insane</option>
-                                            </select>
+                                        <div class="flex flex-col sm:flex-row  sm:space-x-4">
+                                            <div class="mb-4 md:w-6/12">
+                                                <label for="scanSpeed" class="block text-sm font-medium">Scan
+                                                    Speed:</label>
+                                                <select id="scanSpeed" name="scanSpeed"
+                                                    class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
+                                                    <option value="-T0">Paranoid</option>
+                                                    <option value="-T1">Sneaky</option>
+                                                    <option value="-T2">Polite</option>
+                                                    <option value="-T3">Normal</option>
+                                                    <option value="-T4">Aggressive</option>
+                                                    <option value="-T5">Insane</option>
+                                                </select>
+                                            </div>
+
+                                            <!-- Service and Version Detection -->
+
+                                            <div class="mb-4 flex items-center pt-1">
+                                                <input type="checkbox" id="serviceVersionDetection"
+                                                    name="serviceVersionDetection" class="mr-2">
+                                                <label for="serviceVersionDetection" class="text-sm font-medium">Enable
+                                                    Service Version Detection<br>
+                                                    <span class="text-xs text-gray-400">This option enables version
+                                                        detection for all ports.</span></label>
+
+                                            </div>
                                         </div>
-
-                                        <!-- Service and Version Detection -->
-                                        <p class="text-xl font-semibold mb-4">Service and Version Detection</p>
-
-                                        <div class="mb-4">
-                                            <input type="checkbox" id="serviceVersionDetection"
-                                                name="serviceVersionDetection" class="mr-2">
-                                            <label for="serviceVersionDetection" class="text-sm font-medium">Enable
-                                                Service Version
-                                                Detection</label>
-                                        </div>
-
                                         <div class="mb-4">
                                             <label for="versionIntensity" class="block text-sm font-medium">Version
                                                 Intensity:</label>
@@ -466,7 +480,7 @@
                                 <!-- section 3 -->
                                 <h2 id="accordion-collapse-heading-3">
                                     <button type="button"
-                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                                        class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-gray-200 focus:ring-4 focus:ring-blue-500 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
                                         data-accordion-target="#accordion-collapse-body-3" aria-expanded="false"
                                         style="background-color: rgb(41, 50, 77); color: wheat;"
                                         aria-controls="accordion-collapse-body-3">
@@ -492,7 +506,7 @@
                                                 <input type="checkbox" id="authScripts" name="scriptCategories"
                                                     value="--script auth" class="mr-2">
                                                 <label for="authScripts" class="text-sm font-medium">Auth</label>
-                                                <p class="text-xs text-gray-500">Deals with authentication credentials
+                                                <p class="text-xs text-gray-400">Deals with authentication credentials
                                                     on the target system.</p>
                                             </div>
 
@@ -501,7 +515,7 @@
                                                     value="--script broadcast" class="mr-2">
                                                 <label for="broadcastScripts"
                                                     class="text-sm font-medium">Broadcast</label>
-                                                <p class="text-xs text-gray-500">Discovers hosts on the local network by
+                                                <p class="text-xs text-gray-400">Discovers hosts on the local network by
                                                     broadcasting.</p>
                                             </div>
 
@@ -509,7 +523,7 @@
                                                 <input type="checkbox" id="bruteScripts" name="scriptCategories"
                                                     value="--script brute" class="mr-2">
                                                 <label for="bruteScripts" class="text-sm font-medium">Brute</label>
-                                                <p class="text-xs text-gray-500">Uses brute force attacks to guess
+                                                <p class="text-xs text-gray-400">Uses brute force attacks to guess
                                                     authentication credentials.
                                                 </p>
                                             </div>
@@ -518,7 +532,7 @@
                                                 <input type="checkbox" id="defaultScripts" name="scriptCategories"
                                                     value="--script default" class="mr-2">
                                                 <label for="defaultScripts" class="text-sm font-medium">Default</label>
-                                                <p class="text-xs text-gray-500">Default scripts run with -sC or -A
+                                                <p class="text-xs text-gray-400">Default scripts run with -sC or -A
                                                     options, providing valuable
                                                     information quickly.</p>
                                             </div>
@@ -528,7 +542,7 @@
                                                     value="--script discovery" class="mr-2">
                                                 <label for="discoveryScripts"
                                                     class="text-sm font-medium">Discovery</label>
-                                                <p class="text-xs text-gray-500">Actively discovers more about the
+                                                <p class="text-xs text-gray-400">Actively discovers more about the
                                                     network through various
                                                     queries.</p>
                                             </div>
@@ -537,7 +551,7 @@
                                                 <input type="checkbox" id="dosScripts" name="scriptCategories"
                                                     value="--script dos" class="mr-2">
                                                 <label for="dosScripts" class="text-sm font-medium">DoS</label>
-                                                <p class="text-xs text-gray-500">May cause a denial of service, testing
+                                                <p class="text-xs text-gray-400">May cause a denial of service, testing
                                                     vulnerability or as an
                                                     unintended side effect.</p>
                                             </div>
@@ -546,7 +560,7 @@
                                                 <input type="checkbox" id="exploitScripts" name="scriptCategories"
                                                     value="--script exploit" class="mr-2">
                                                 <label for="exploitScripts" class="text-sm font-medium">Exploit</label>
-                                                <p class="text-xs text-gray-500">Actively exploits vulnerabilities.</p>
+                                                <p class="text-xs text-gray-400">Actively exploits vulnerabilities.</p>
                                             </div>
 
                                             <div>
@@ -554,7 +568,7 @@
                                                     value="--script external" class="mr-2">
                                                 <label for="externalScripts"
                                                     class="text-sm font-medium">External</label>
-                                                <p class="text-xs text-gray-500">Sends data to third-party databases or
+                                                <p class="text-xs text-gray-400">Sends data to third-party databases or
                                                     network resources.</p>
                                             </div>
 
@@ -562,7 +576,7 @@
                                                 <input type="checkbox" id="fuzzerScripts" name="scriptCategories"
                                                     value="--script fuzzer" class="mr-2">
                                                 <label for="fuzzerScripts" class="text-sm font-medium">Fuzzer</label>
-                                                <p class="text-xs text-gray-500">Sends unexpected or randomized fields
+                                                <p class="text-xs text-gray-400">Sends unexpected or randomized fields
                                                     to find undiscovered bugs
                                                     in software.</p>
                                             </div>
@@ -572,7 +586,7 @@
                                                     value="--script intrusive" class="mr-2">
                                                 <label for="intrusiveScripts"
                                                     class="text-sm font-medium">Intrusive</label>
-                                                <p class="text-xs text-gray-500">Scripts with high risks that may crash
+                                                <p class="text-xs text-gray-400">Scripts with high risks that may crash
                                                     the target system or be
                                                     perceived as malicious.</p>
                                             </div>
@@ -580,30 +594,30 @@
                                         </div>
 
                                         <!-- Output Settings -->
-                                        <p class="text-xl font-semibold mb-4">Output</p>
+                                        <p class="text-xl font-semibold mb-4 mt-2">Output</p>
+                                        <div class="flex flex-col sm:flex-row  sm:space-x-4">
+                                            <!-- Output Format -->
+                                            <div class="mb-4 md:w-5/12">
+                                                <label for="outputFormat" class="block text-sm font-medium">Output
+                                                    Format:</label>
+                                                <select id="outputFormat" name="outputFormat"
+                                                    class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
+                                                    <option value="-oN">Normal</option>
+                                                    <option value="-oX">XML</option>
+                                                    <option value="-oG">Grepable</option>
+                                                    <!-- Add more options as needed -->
+                                                </select>
+                                            </div>
 
-                                        <!-- Output Format -->
-                                        <div class="mb-4">
-                                            <label for="outputFormat" class="block text-sm font-medium">Output
-                                                Format:</label>
-                                            <select id="outputFormat" name="outputFormat"
-                                                class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
-                                                <option value="-oN">Normal</option>
-                                                <option value="-oX">XML</option>
-                                                <option value="-oG">Grepable</option>
-                                                <!-- Add more options as needed -->
-                                            </select>
+                                            <!-- Output File -->
+                                            <div class="mb-4 md:w-7/12">
+                                                <label for="outputFile" class="block text-sm font-medium">Output
+                                                    File:</label>
+                                                <input type="text" id="outputFile" name="outputFile"
+                                                    placeholder="Specify output file name"
+                                                    class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
+                                            </div>
                                         </div>
-
-                                        <!-- Output File -->
-                                        <div class="mb-4">
-                                            <label for="outputFile" class="block text-sm font-medium">Output
-                                                File:</label>
-                                            <input type="text" id="outputFile" name="outputFile"
-                                                placeholder="Specify output file name"
-                                                class="mt-1 p-2 border rounded-md w-full bg-gray-700 text-gray-300">
-                                        </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -613,17 +627,13 @@
                                 Scan</button>
                         </form>
 
-                        <div id="result"></div>
 
-                        <br>
-
-                        <button onclick="window.location.href='./Result.html'"
-                            class="bg-blue-500 text-white px-4 py-2 rounded">View Results</button>
                     </div>
                 </div>
-            </main>
-
         </div>
+        </main>
+
+    </div>
     </div>
 
     <script>
@@ -640,16 +650,83 @@
             labels.forEach(label => label.classList.toggle('opacity-0'));
         });
 
-        function submitForm() {
-            // Dummy data for testing
-            var dummyData = {
-                command: 'nmap -sS -p 1-1000 192.168.1.1',
-                result: 'Scan complete! 3 open ports found.'
-            };
+        function generateNmapCommand() {
+
+            // Gather form data
+            const ipDomain = document.getElementById('ipDomain').value;
+            const scanType = document.getElementById('scanType').value;
+            const enableHostDiscovery = document.getElementById('enableHostDiscovery').checked;
+            const arpDiscovery = document.getElementById('arpDiscovery').checked;
+            const disableDnsResolution = document.getElementById('disableDnsResolution').checked;
+            const specifyPorts = document.getElementById('specifyPorts').value.trim();
+
+            const scanSpeed = document.getElementById('scanSpeed').value;
+            const serviceVersionDetection = document.getElementById('serviceVersionDetection').checked;
+            const versionIntensity = document.getElementById('versionIntensity').value;
+            const enableOsDetection = document.getElementById('enableOsDetection').checked;
+            const osScanLimit = document.getElementById('osScanLimit').checked;
+            const osDetectionGuess = document.getElementById('osDetectionGuess').checked;
+
+            const authScripts = document.getElementById('authScripts').checked;
+            const broadcastScripts = document.getElementById('broadcastScripts').checked;
+            const bruteScripts = document.getElementById('bruteScripts').checked;
+            const defaultScripts = document.getElementById('defaultScripts').checked;
+            const discoveryScripts = document.getElementById('discoveryScripts').checked;
+            const dosScripts = document.getElementById('dosScripts').checked;
+            const exploitScripts = document.getElementById('exploitScripts').checked;
+            const externalScripts = document.getElementById('externalScripts').checked;
+            const fuzzerScripts = document.getElementById('fuzzerScripts').checked;
+            const intrusiveScripts = document.getElementById('intrusiveScripts').checked;
+
+            const outputFormat = document.getElementById('outputFormat').value;
+            const outputFile = document.getElementById('outputFile').value;
+
+            // Build Nmap command
+            let nmapCommand = `nmap ${ipDomain} -s${scanType} `;
+            if (enableHostDiscovery) nmapCommand += '-Pn ';
+            if (arpDiscovery) nmapCommand += '-PR ';
+            if (disableDnsResolution) nmapCommand += '--disable-dns-resolution ';
+            if (specifyPorts) nmapCommand += `-p ${specifyPorts} `;
+            else {
+                nmapCommand += "-p- "; // Scan all ports
+            }
+
+            nmapCommand += `${scanSpeed} `;
+            if (serviceVersionDetection) nmapCommand += '-sV ';
+            if (enableOsDetection) nmapCommand += '-O ';
+            if (osScanLimit) nmapCommand += '--osscan-limit ';
+            if (osDetectionGuess) nmapCommand += '--fuzzy ';
+
+            const selectedScripts = [];
+            if (authScripts) selectedScripts.push('--script auth');
+            if (broadcastScripts) selectedScripts.push('--script broadcast');
+            if (bruteScripts) selectedScripts.push('--script brute');
+            if (defaultScripts) selectedScripts.push('--script default');
+            if (discoveryScripts) selectedScripts.push('--script discovery');
+            if (dosScripts) selectedScripts.push('--script dos');
+            if (exploitScripts) selectedScripts.push('--script exploit');
+            if (externalScripts) selectedScripts.push('--script external');
+            if (fuzzerScripts) selectedScripts.push('--script fuzzer');
+            if (intrusiveScripts) selectedScripts.push('--script intrusive');
+
+            if (selectedScripts.length > 0) nmapCommand += `${selectedScripts.join(' ')} `;
+
+            // Include OS detection and version detection if selected
+            if (enableOsDetection || serviceVersionDetection) {
+                nmapCommand += '-A ';
+                nmapCommand += `--version-intensity ${versionIntensity} `;
+            }
+
+            nmapCommand += `${outputFormat} ${outputFile}`;
+
+            // Display the Nmap command or execute it as needed
+            console.log('Nmap Command:', nmapCommand);
+
+
 
             var element = document.getElementById('commandResult');
             element.innerHTML = '';
-            var text = 'Command: ' + dummyData.command + '\nResult: ' + dummyData.result;
+            var text = nmapCommand;
             var speed = 50;
 
             function type(i) {
