@@ -3,21 +3,92 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PortProwler Pro</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        body {
-            background: linear-gradient(180deg, #1a202c 0%, #2d3748 100%);
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tabs Sidebar</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
 
-       
-    </style>
+    <!-- script -->
+
 </head>
 
-<body class="text-white flex items-center justify-center min-h-screen">
+<body class="font-sans bg-gray-100">
+ 
+  <script>
+    function generateNmapCommand() {
+        // Gather form data
+        const ipDomain = document.getElementById('ipDomain').value;
+        const scanType = document.getElementById('scanType').value;
+        const enableHostDiscovery = document.getElementById('enableHostDiscovery').checked;
+        const arpDiscovery = document.getElementById('arpDiscovery').checked;
+        const disableDnsResolution = document.getElementById('disableDnsResolution').checked;
+        const specifyPorts = document.getElementById('specifyPorts').value.trim();
 
-    
+        const scanSpeed = document.getElementById('scanSpeed').value;
+        const serviceVersionDetection = document.getElementById('serviceVersionDetection').checked;
+        const versionIntensity = document.getElementById('versionIntensity').value;
+        const enableOsDetection = document.getElementById('enableOsDetection').checked;
+        const osScanLimit = document.getElementById('osScanLimit').checked;
+        const osDetectionGuess = document.getElementById('osDetectionGuess').checked;
+
+        const authScripts = document.getElementById('authScripts').checked;
+        const broadcastScripts = document.getElementById('broadcastScripts').checked;
+        const bruteScripts = document.getElementById('bruteScripts').checked;
+        const defaultScripts = document.getElementById('defaultScripts').checked;
+        const discoveryScripts = document.getElementById('discoveryScripts').checked;
+        const dosScripts = document.getElementById('dosScripts').checked;
+        const exploitScripts = document.getElementById('exploitScripts').checked;
+        const externalScripts = document.getElementById('externalScripts').checked;
+        const fuzzerScripts = document.getElementById('fuzzerScripts').checked;
+        const intrusiveScripts = document.getElementById('intrusiveScripts').checked;
+
+        const outputFormat = document.getElementById('outputFormat').value;
+        const outputFile = document.getElementById('outputFile').value;
+
+        // Build Nmap command
+        let nmapCommand = `nmap ${ipDomain} -s${scanType} `;
+        if (enableHostDiscovery) nmapCommand += '-Pn ';
+        if (arpDiscovery) nmapCommand += '-PR ';
+        if (disableDnsResolution) nmapCommand += '--disable-dns-resolution ';
+        if (specifyPorts) nmapCommand += `-p ${specifyPorts} `;
+        else {
+            nmapCommand += " -p-"; // Scan all ports
+        }
+
+        nmapCommand += `${scanSpeed} `;
+        if (serviceVersionDetection) nmapCommand += '-sV ';
+        if (enableOsDetection) nmapCommand += '-O ';
+        if (osScanLimit) nmapCommand += '--osscan-limit ';
+        if (osDetectionGuess) nmapCommand += '--fuzzy ';
+
+        const selectedScripts = [];
+        if (authScripts) selectedScripts.push('--script auth');
+        if (broadcastScripts) selectedScripts.push('--script broadcast');
+        if (bruteScripts) selectedScripts.push('--script brute');
+        if (defaultScripts) selectedScripts.push('--script default');
+        if (discoveryScripts) selectedScripts.push('--script discovery');
+        if (dosScripts) selectedScripts.push('--script dos');
+        if (exploitScripts) selectedScripts.push('--script exploit');
+        if (externalScripts) selectedScripts.push('--script external');
+        if (fuzzerScripts) selectedScripts.push('--script fuzzer');
+        if (intrusiveScripts) selectedScripts.push('--script intrusive');
+
+        if (selectedScripts.length > 0) nmapCommand += `${selectedScripts.join(' ')} `;
+
+        // Include OS detection and version detection if selected
+        if (enableOsDetection || serviceVersionDetection) {
+            nmapCommand += '-A ';
+            nmapCommand += `--version-intensity ${versionIntensity} `;
+        }
+
+        nmapCommand += `${outputFormat} ${outputFile}`;
+
+        // Display the Nmap command or execute it as needed
+        console.log('Nmap Command:', nmapCommand);
+    }
+</script>
+
+   
+
 
 </body>
 

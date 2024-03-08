@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Tabs Sidebar</title>
+    <!-- Include Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content {
+            flex: 1;
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                flex-direction: row;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-100">
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="w-full md:w-1/4 bg-gray-800 text-white p-6 flex flex-col justify-center">
+            <h1 class="text-2xl font-bold mb-4 md:hidden">Tabs</h1>
+            <ul class="md:block hidden">
+                <li class="mb-2">
+                    <a href="#tab1" class="block p-2 rounded hover:bg-gray-700">
+                        Target Specification:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab2" class="block p-2 rounded hover:bg-gray-700">
+                        Host Discovery:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab3" class="block p-2 rounded hover:bg-gray-700">
+                        Port Specification:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab4" class="block p-2 rounded hover:bg-gray-700">
+                        Scan Techniques:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab5" class="block p-2 rounded hover:bg-gray-700">
+                        Service and Version Detection:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab6" class="block p-2 rounded hover:bg-gray-700">
+                        OS Detection:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab7" class="block p-2 rounded hover:bg-gray-700">
+                        Timing and Performance:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab8" class="block p-2 rounded hover:bg-gray-700">
+                        NSE Scripts:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab19" class="block p-2 rounded hover:bg-gray-700">
+                        Output:
+                    </a>
+                </li>
+                <li class="mb-2">
+                    <a href="#tab10" class="block p-2 rounded hover:bg-gray-700">
+                        Miscellaneous Options:
+                    </a>
+                </li>
+            </ul>
+            
+            <!-- Mobile dropdown menu -->
+            <div class="md:hidden">
+                <select id="mobileTabs" class="block w-full p-2 mt-2 bg-gray-700 text-white rounded">
+                    
+                        <option value="#tab1">Target Specification:</option>
+                        <option value="#tab2">Host Discovery:</option>
+                        <option value="#tab3">Port Specification:</option>
+                        <option value="#tab4">Scan Techniques:</option>
+                        <option value="#tab5">Service and Version Detection:</option>
+                        <option value="#tab6">OS Detection:</option>
+                        <option value="#tab7">Timing and Performance:</option>
+                        <option value="#tab8">NSE Scripts:</option>
+                        <option value="#tab9">Output:</option>
+                        <option value="#tab10">Miscellaneous Options:</option>
+                    
+                </select>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="w-full md:w-3/4 p-6 content flex justify-center items-center">
+            <div id="tab1" class="tab-content">
+                <h2 class="text-2xl font-bold mb-4">Tab 1 Content</h2>
+                <p>Your tab 1 content goes here.</p>
+            </div>
+            <div id="tab2" class="hidden tab-content">
+                <h2 class="text-2xl font-bold mb-4">Tab 2 Content</h2>
+                <p>Your tab 2 content goes here.</p>
+            </div>
+            <div id="tab3" class="hidden tab-content">
+                <h2 class="text-2xl font-bold mb-4">Tab 3 Content</h2>
+                <p>Your tab 3 content goes here.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle tab switching for mobile dropdown
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabs = document.querySelectorAll('.tab-content');
+            const mobileTabs = document.getElementById('mobileTabs');
+
+            // Switch tabs on mobile dropdown change
+            mobileTabs.addEventListener('change', function () {
+                const selectedTab = mobileTabs.value;
+                tabs.forEach((tab) => tab.classList.add('hidden'));
+                document.querySelector(selectedTab).classList.remove('hidden');
+            });
+
+            // Switch tabs on sidebar link click for larger screens
+            document.querySelectorAll('ul > li > a').forEach((tab, index) => {
+                tab.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    tabs.forEach((tab) => tab.classList.add('hidden'));
+                    tabs[index].classList.remove('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
