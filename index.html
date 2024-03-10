@@ -81,7 +81,7 @@
         border-radius: 8px;
         box-shadow: 10px 15px 15px rgba(85, 83, 83, 0.7);
         padding: 0%;
-        animation: floatImage 2s ease-in-out infinite ;
+        animation: floatImage 2s ease-in-out infinite;
     }
 
     @media (max-width: 900px) {
@@ -166,14 +166,35 @@
     }
 </style>
 
-<body class="font-sans bg-gray-100">
+<body class="font-sans ">
 
-    <div class="flex h-screen bg-gray-200">
+    <div class="flex h-screen" style="background-color: #2e2d2d;">
         <!-- Sidebar -->
-        <aside id="sidebar" class="w-2 bg-gray-900 text-white p-4 transition-all duration-300">
+        <aside id="sidebar" style="box-sizing: border-box; border-right: 2px solid #555; 
+        " class="m-auto w-2 text-white p-4 transition-all duration-300">
             <div class="flex flex-col space-y-4">
                 <!-- Sidebar Icons -->
-                <div class="relative group flex items-center border-b-2 border-gray-300 pb-2">
+
+                <div class="relative group flex items-center">
+                    <button id="icon2" class="p-2 rounded-full focus:outline-none" style="background-color: #696868;">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0,0,256,256" width="20px" height="20px">
+                            <g fill="#c2c2c2" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M25,1.05078c-0.2175,0 -0.43414,0.06898 -0.61914,0.20898l-23,17.95117c-0.43,0.34 -0.50992,0.9682 -0.16992,1.4082c0.34,0.43 0.9682,0.50992 1.4082,0.16992l1.38086,-1.07812v26.28906c0,0.55 0.45,1 1,1h14v-18h12v18h14c0.55,0 1,-0.45 1,-1v-26.28906l1.38086,1.07812c0.19,0.14 0.39914,0.21094 0.61914,0.21094c0.3,0 0.58906,-0.13086 0.78906,-0.38086c0.34,-0.44 0.26008,-1.0682 -0.16992,-1.4082l-23,-17.95117c-0.185,-0.14 -0.40164,-0.20898 -0.61914,-0.20898zM35,5v1.05078l6,4.67969v-5.73047z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                    <span
+                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Home</span>
+                </div>
+                <div class="relative group flex items-center">
                     <button id="icon1" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
                         <svg fill="#9ec3ff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
@@ -205,18 +226,23 @@
                         GUI</span>
                 </div>
                 <div class="relative group flex items-center">
-                    <button id="icon2" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
-                        📁
-                    </button>
-                    <span
-                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Files</span>
-                </div>
-                <div class="relative group flex items-center">
                     <button id="icon3" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
-                        🔍
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <!-- License: CC Attribution. Made by salesforce: https://lightningdesignsystem.com/ -->
+                        <svg fill="#c2c2c2" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                            viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+                            <g>
+                                <path d="M17.4,11.6h17.3c0.9,0,1.6-0.7,1.6-1.6V6.8c0-2.6-2.1-4.8-4.7-4.8h-11c-2.6,0-4.7,2.2-4.7,4.8V10
+		C15.8,10.9,16.5,11.6,17.4,11.6z" />
+                                <path d="M43.3,6h-1.6c-0.5,0-0.8,0.3-0.8,0.8V10c0,3.5-2.8,6.4-6.3,6.4H17.4c-3.5,0-6.3-2.9-6.3-6.4V6.8
+		c0-0.5-0.3-0.8-0.8-0.8H8.7C6.1,6,4,8.2,4,10.8v34.4C4,47.8,6.1,50,8.7,50h34.6c2.6,0,4.7-2.2,4.7-4.8V10.8C48,8.2,45.9,6,43.3,6z
+		 M36.7,27.1l-12,12c-0.5,0.5-1,0.7-1.6,0.7c-0.5,0-1.2-0.2-1.6-0.7l-5.8-5.8c-0.5-0.5-0.5-1.2,0-1.6l1.6-1.6c0.5-0.5,1.2-0.5,1.6,0
+		l4.2,4.2L33.4,24c0.5-0.5,1.2-0.5,1.6,0l1.6,1.6C37.1,25.9,37.1,26.7,36.7,27.1z" />
+                            </g>
+                        </svg>
                     </button>
-                    <span
-                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Search</span>
+                    <span class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Run
+                        Command</span>
                 </div>
             </div>
         </aside>
@@ -227,8 +253,8 @@
                 PortProwler
             </div>
 
-             <main class="overflow-y-auto">
-                 <div
+            <main class="overflow-y-auto">
+                <div
                     class="bg-gradient-to-br from-gray-800 to-gray-900 text-white lg:flex items-center justify-center min-h-fit-content p-10">
                     <section class="w-full lg:w-5/12 animate__animated animate__fadeIn animate__delay-1s text-center">
                         <h1 class="text-5xl font-extrabold mb-4">Discover. Scan. Secure.</h1>
@@ -248,7 +274,7 @@
                             who can't tell a SYN scan from a cat scan. 🐱🔍
                         </p>
 
-                        <button
+                        <button onclick="window.location.href='./command_create.html'"
                             class="bg-gradient-to-br from-blue-700 to-blue-900 hover:from-blue-600 hover:to-blue-800 text-white font-semibold px-6 py-3 mt-6 rounded-full">
                             Try the Tool (if you dare)
                         </button>
@@ -260,20 +286,21 @@
                 <!--  page content -->
                 <div class="h-min-screen section">
                     <div class="animate__animated animate__fadeIn animate__delay-1s section">
-                    <div class="text">
-                        <span style="color: #0A84FF;">root@kali:~#</span> <span id="command"></span>
-                        <br>
-                        <br>
-                        <div id="cmdoutput" class="fade-in" style="display: none;">
-                            <span style="color: #FF4D4D;">Two years in infosec, and your command-line skills are still
-                                on
-                                training wheels? Maybe consider a career switch – ever tried being a professional
-                                guesser?
-                                You are the defination of a functioning idiot, so I am updating the argument passer
-                                logic</span>
+                        <div class="text">
+                            <span style="color: #0A84FF;">root@kali:~#</span> <span id="command"></span>
                             <br>
                             <br>
-                            <pre class="text-green-300 text-wrap w-auto">
+                            <div id="cmdoutput" class="fade-in" style="display: none;">
+                                <span style="color: #FF4D4D;">Two years in infosec, and your command-line skills are
+                                    still
+                                    on
+                                    training wheels? Maybe consider a career switch – ever tried being a professional
+                                    guesser?
+                                    You are the defination of a functioning idiot, so I am updating the argument passer
+                                    logic</span>
+                                <br>
+                                <br>
+                                <pre class="text-green-300 text-wrap w-auto">
  # You my dear lost child        
  if user == "{$mr_typo}":
      go_to_catch_block() 
@@ -283,80 +310,81 @@
       normal_exec() 
                            </pre>
 
+                            </div>
+                        </div>
+                        <div class="image-container">
+                            <img src="https://europe1.discourse-cdn.com/hackthebox/optimized/3X/c/3/c3c507b374fa3d512ee2c5f8372963a5bf281131_2_690x223.png"
+                                alt="Floating Image">
                         </div>
                     </div>
-                    <div class="image-container">
-                        <img src="https://europe1.discourse-cdn.com/hackthebox/optimized/3X/c/3/c3c507b374fa3d512ee2c5f8372963a5bf281131_2_690x223.png"
-                            alt="Floating Image">
-                    </div>
                 </div>
-                </div>
-                
+
                 <div class="container mx-auto p-8 bg-gradient rounded-lg shadow-lg">
-                   <div class="animate__animated animate__fadeIn animate__delay-2s">
-                    <h1 class="text-4xl font-bold mb-6 text-center text-white">Features that even your grandma could love</h1>
+                    <div class="animate__animated animate__fadeIn animate__delay-2s">
+                        <h1 class="text-4xl font-bold mb-6 text-center text-white">Features that even your grandma could
+                            love</h1>
 
-                    <div class="flex justify-center" style="color: wheat;">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            <!-- Feature 1 -->
-                            <div class="flex items-center mb-4">
-                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                                <div>
-                                    <h2 class="text-2xl font-semibold mb-2">User-friendly interface</h2>
-                                    <p>Because command lines are so last century.</p>
+                        <div class="flex justify-center" style="color: wheat;">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <!-- Feature 1 -->
+                                <div class="flex items-center mb-4">
+                                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                    </svg>
+                                    <div>
+                                        <h2 class="text-2xl font-semibold mb-2">User-friendly interface</h2>
+                                        <p>Because command lines are so last century.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- Feature 2 -->
-                            <div class="flex items-center mb-4">
-                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                                <div>
-                                    <h2 class="text-2xl font-semibold mb-2">Nmap Command Explanation</h2>
-                                    <p>Understand the power of Nmap commands effortlessly.</p>
+                                <!-- Feature 2 -->
+                                <div class="flex items-center mb-4">
+                                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                    </svg>
+                                    <div>
+                                        <h2 class="text-2xl font-semibold mb-2">Nmap Command Explanation</h2>
+                                        <p>Understand the power of Nmap commands effortlessly.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- Feature 3 -->
-                            <div class="flex items-center mb-4">
-                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                                <div>
-                                    <h2 class="text-2xl font-semibold mb-2">Run command from browser</h2>
-                                    <p>Execute commands directly from the convenience of your browser.</p>
+                                <!-- Feature 3 -->
+                                <div class="flex items-center mb-4">
+                                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                    </svg>
+                                    <div>
+                                        <h2 class="text-2xl font-semibold mb-2">Run command from browser</h2>
+                                        <p>Execute commands directly from the convenience of your browser.</p>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <!-- Feature 4 -->
-                            <div class="flex items-center mb-4">
-                                <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
-                                </svg>
-                                <div>
-                                    <h2 class="text-2xl font-semibold mb-2">Report analysis</h2>
-                                    <p>Receive detailed and insightful analysis reports at your fingertips.</p>
+                                <!-- Feature 4 -->
+                                <div class="flex items-center mb-4">
+                                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                    </svg>
+                                    <div>
+                                        <h2 class="text-2xl font-semibold mb-2">Report analysis</h2>
+                                        <p>Receive detailed and insightful analysis reports at your fingertips.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <p class="text-lg mt-6 text-center text-white">
-                        So, why settle for being an Nmap novice when you can be a PortProwler pro? Discover. Scan.
-                        Secure. The seas
-                        of your network await your command!
-                    </p>
+                        <p class="text-lg mt-6 text-center text-white">
+                            So, why settle for being an Nmap novice when you can be a PortProwler pro? Discover. Scan.
+                            Secure. The seas
+                            of your network await your command!
+                        </p>
                     </div>
                 </div>
 

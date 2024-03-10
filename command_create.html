@@ -213,13 +213,35 @@
 
 <body class="overflow-hidden no-scrollbar">
 
-    <div class="flex h-screen " style="background-color: #292727;">
+    <div class="flex h-screen " style="background-color: #2e2d2d;
+    ">
         <!-- Sidebar -->
-        <aside id="sidebar" class="m-auto w-2 text-white p-4 transition-all duration-300">
+        <aside id="sidebar" style="box-sizing: border-box; border-right: 2px solid #555; 
+        " class="m-auto w-2 text-white p-4 transition-all duration-300">
             <div class="flex flex-col space-y-4">
                 <!-- Sidebar Icons -->
-                <div class="relative group flex items-center border-b-2 border-gray-300 pb-2">
-                    <button id="icon1" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
+
+                <div class="relative group flex items-center">
+                    <button id="icon2" class="p-2 rounded-full focus:outline-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            viewBox="0,0,256,256" width="20px" height="20px">
+                            <g fill="#c2c2c2" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                                font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                                style="mix-blend-mode: normal">
+                                <g transform="scale(5.12,5.12)">
+                                    <path
+                                        d="M25,1.05078c-0.2175,0 -0.43414,0.06898 -0.61914,0.20898l-23,17.95117c-0.43,0.34 -0.50992,0.9682 -0.16992,1.4082c0.34,0.43 0.9682,0.50992 1.4082,0.16992l1.38086,-1.07812v26.28906c0,0.55 0.45,1 1,1h14v-18h12v18h14c0.55,0 1,-0.45 1,-1v-26.28906l1.38086,1.07812c0.19,0.14 0.39914,0.21094 0.61914,0.21094c0.3,0 0.58906,-0.13086 0.78906,-0.38086c0.34,-0.44 0.26008,-1.0682 -0.16992,-1.4082l-23,-17.95117c-0.185,-0.14 -0.40164,-0.20898 -0.61914,-0.20898zM35,5v1.05078l6,4.67969v-5.73047z">
+                                    </path>
+                                </g>
+                            </g>
+                        </svg>
+                    </button>
+                    <span
+                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Home</span>
+                </div>
+                <div class="relative group flex items-center">
+                    <button id="icon1" class="p-2 rounded-full focus:outline-none focus:bg-blue-700" style="background-color: #696868;">
                         <svg fill="#9ec3ff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
                             viewBox="0 0 442.04 442.04" xml:space="preserve" stroke="#9ec3ff" transform="rotate(0)">
@@ -250,18 +272,23 @@
                         GUI</span>
                 </div>
                 <div class="relative group flex items-center">
-                    <button id="icon2" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
-                        📁
-                    </button>
-                    <span
-                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Files</span>
-                </div>
-                <div class="relative group flex items-center">
                     <button id="icon3" class="p-2 rounded-full focus:outline-none focus:bg-blue-700">
-                        🔍
+                        <?xml version="1.0" encoding="utf-8"?>
+                        <!-- License: CC Attribution. Made by salesforce: https://lightningdesignsystem.com/ -->
+                        <svg fill="#c2c2c2" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px"
+                            viewBox="0 0 52 52" enable-background="new 0 0 52 52" xml:space="preserve">
+                            <g>
+                                <path d="M17.4,11.6h17.3c0.9,0,1.6-0.7,1.6-1.6V6.8c0-2.6-2.1-4.8-4.7-4.8h-11c-2.6,0-4.7,2.2-4.7,4.8V10
+		C15.8,10.9,16.5,11.6,17.4,11.6z" />
+                                <path d="M43.3,6h-1.6c-0.5,0-0.8,0.3-0.8,0.8V10c0,3.5-2.8,6.4-6.3,6.4H17.4c-3.5,0-6.3-2.9-6.3-6.4V6.8
+		c0-0.5-0.3-0.8-0.8-0.8H8.7C6.1,6,4,8.2,4,10.8v34.4C4,47.8,6.1,50,8.7,50h34.6c2.6,0,4.7-2.2,4.7-4.8V10.8C48,8.2,45.9,6,43.3,6z
+		 M36.7,27.1l-12,12c-0.5,0.5-1,0.7-1.6,0.7c-0.5,0-1.2-0.2-1.6-0.7l-5.8-5.8c-0.5-0.5-0.5-1.2,0-1.6l1.6-1.6c0.5-0.5,1.2-0.5,1.6,0
+		l4.2,4.2L33.4,24c0.5-0.5,1.2-0.5,1.6,0l1.6,1.6C37.1,25.9,37.1,26.7,36.7,27.1z" />
+                            </g>
+                        </svg>
                     </button>
-                    <span
-                        class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Search</span>
+                    <span class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Run
+                        Command</span>
                 </div>
             </div>
         </aside>
@@ -341,32 +368,37 @@
 
                     <!-- Form Section -->
 
-                    <div id="formSection" class=" w-full md:w-7/12 bg-gray-900">
+                    <div id="formSection" class=" w-full md:w-7/12 bg-gray-900 p-4">
                         <form onsubmit="generateNmapCommand(); return false;"
                             class="w-full m-auto rounded-lg shadow-xl no-scrollbar">
 
                             <div id="accordion-collapse" data-accordion="collapse">
                                 <h2 id="accordion-collapse-heading-0">
                                     <button type="button"
-                                            class="flex items-center mx-auto justify-center w-full p-2 font-medium rtl:text-right text-gray-500 rounded-t-xl hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                                            data-accordion-target="#accordion-collapse-body-0" aria-expanded="true"
-                                            style="background-color: transparent; color: white;"
-                                            aria-controls="accordion-collapse-body-1">
+                                        class="flex items-center mx-auto justify-center w-full p-2 font-medium rtl:text-right text-gray-500 rounded-t-xl hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                                        data-accordion-target="#accordion-collapse-body-0" aria-expanded="true"
+                                        style="background-color: transparent; color: white;"
+                                        aria-controls="accordion-collapse-body-1">
                                         <span class="text-2xl">Tell me what You Need</span>
                                     </button>
                                 </h2>
-                                
+
                                 <div id="accordion-collapse-body-0"
                                     class="hidden transition-all duration-300 ease-in-out"
                                     aria-labelledby="accordion-collapse-heading-0">
-                                    <div class="p-5 text-white"
-                                        style="background-color: transparent; color:wheat;">
+                                    <div class="p-5 text-white" style="background-color: transparent; color:wheat;">
                                         <p class="text-center text-md font-bold p-2 ">
-                                            Welcome to <span class="text-blue-500">Port Prowler's GUI Command Creator</span>! This tool provides you with a seamless experience in crafting commands for NMPA (Network Mapper and Port Analyzer). Whether you're embarking on host discovery, fine-tuning scan parameters, specifying services and operating system settings, or tailoring NSE scripts with a close eye on their output, this intuitive interface streamlines the entire process. 
+                                            Welcome to <span class="text-blue-500">Port Prowler's GUI Command
+                                                Creator</span>! This tool provides you with a seamless experience in
+                                            crafting commands for NMPA (Network Mapper and Port Analyzer). Whether
+                                            you're embarking on host discovery, fine-tuning scan parameters, specifying
+                                            services and operating system settings, or tailoring NSE scripts with a
+                                            close eye on their output, this intuitive interface streamlines the entire
+                                            process.
                                         </p>
-                                        
+
                                     </div>
-                               
+
                                 </div>
                                 <!-- section 1 -->
                                 <h2 id="accordion-collapse-heading-1">
@@ -496,7 +528,7 @@
 
                                             </div>
                                         </div>
-                                        <div >
+                                        <div>
                                             <label for="versionIntensity" class="block text-sm font-medium">Version
                                                 Intensity:</label>
                                             <input type="range" id="versionIntensity" name="versionIntensity" min="0"
@@ -507,7 +539,7 @@
                                         <!-- OS Detection -->
                                         <p class="text-xl font-semibold">OS Detection</p>
 
-                                        <div >
+                                        <div>
                                             <input type="checkbox" id="enableOsDetection" name="enableOsDetection"
                                                 class="mr-2">
                                             <label for="enableOsDetection" class="text-sm font-medium">Enable OS
