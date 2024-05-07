@@ -222,7 +222,8 @@
                 <!-- Sidebar Icons -->
 
                 <div class="relative group flex items-center">
-                    <button onclick="window.location.href='./index.html'" id="icon2" class="p-2 rounded-full focus:outline-none">
+                    <button onclick="window.location.href='./index.html'" id="icon2"
+                        class="p-2 rounded-full focus:outline-none">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                             viewBox="0,0,256,256" width="20px" height="20px">
                             <g fill="#c2c2c2" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
@@ -241,7 +242,8 @@
                         class="ml-2 text-xs opacity-0 transition-opacity duration-300 group-hover:opacity-100">Home</span>
                 </div>
                 <div class="relative group flex items-center">
-                    <button id="icon1" class="p-2 rounded-full focus:outline-none focus:bg-blue-700" style="background-color: #696868;">
+                    <button id="icon1" class="p-2 rounded-full focus:outline-none focus:bg-blue-700"
+                        style="background-color: #696868;">
                         <svg fill="#9ec3ff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
                             xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" height="20px"
                             viewBox="0 0 442.04 442.04" xml:space="preserve" stroke="#9ec3ff" transform="rotate(0)">
@@ -304,70 +306,8 @@
                 <!--  page content -->
 
                 <div class="sm:flex-row md:flex overflow-x-hidden overflow-y-auto bg-gray-100 m-auto no-scrollbar ">
-                    <div id="commandSection" class="w-full md:w-5/12 p-4 md:p-6 pb-2 commandcomponent h-full">
-                        <h2 class="text-2xl font-semibold mb-4">Generated Command</h2>
-                        <pre id="commandResult" class="whitespace-pre-wrap"> Create a Command using the form</pre>
-                        <div class="flaginfo">
-
-                            <h1>Nmap Port Scanning Overview</h1>
-                            <p>Nmap supports various port scanning methods to discover open ports and services on target
-                                machines. Here's a summary of key scanning methods:</p>
-                            <ul>
-                                <li><strong>TCP SYN (Stealth) Scan (-sS):</strong> Fastest scan for popular TCP ports.
-                                    Stealthier than connect scan, works on all TCP stacks.</li>
-                                <li><strong>TCP Connect Scan (-sT):</strong> Uses system call to scan machines.
-                                    Preferred
-                                    for unprivileged Unix users and IPv6 targets.</li>
-                                <li><strong>UDP Scan (-sU):</strong> Scans UDP ports to find security vulnerabilities.
-                                </li>
-                                <li><strong>TCP FIN, NULL, and Xmas Scans (-sF, -sN, -sX):</strong> Special purpose
-                                    scans
-                                    for bypassing firewalls. Some systems, especially Windows, may not exhibit expected
-                                    behavior.</li>
-                                <li><strong>TCP ACK Scan (-sA):</strong> Maps out firewall rulesets. Cannot distinguish
-                                    open
-                                    from closed ports.</li>
-                                <li><strong>TCP Window Scan (-sW):</strong> Similar to ACK scan, detects open vs. closed
-                                    ports on certain machines.</li>
-                                <li><strong>TCP Maimon Scan (-sM):</strong> Firewall-evading scan, similar to FIN scan
-                                    with
-                                    ACK flag. Works against fewer systems than FIN scan.</li>
-                                <li><strong>TCP Idle Scan (-sI &lt;zombie host&gt;):</strong> Stealthiest scan
-                                    exploiting
-                                    trusted IP address relationships. Slow and complex.</li>
-                                <li><strong>IP Protocol Scan (-sO):</strong> Determines supported IP protocols (TCP,
-                                    ICMP,
-                                    IGMP, etc.).</li>
-                                <li><strong>TCP FTP Bounce Scan (-b &lt;FTP bounce proxy&gt;):</strong> Deprecated
-                                    method
-                                    tricking FTP servers for port scans.</li>
-                            </ul>
-                            <p><strong>Port Selection Examples:</strong> Specify ports with -p option using numbers,
-                                names,
-                                ranges, or protocols.</p>
-                            <p><strong>Timing-related Options:</strong> Control scan times with options like -T0 through
-                                -T5, --min-rtt-timeout, --max-rtt-timeout, etc.</p>
-                            <p><strong>Output Format and Verbosity Options:</strong> Choose output format with -oN, -oG,
-                                -oX. Increase verbosity with -v or debugging with -d.</p>
-                            <p><strong>Firewall and IDS Evasion Options:</strong> Numerous options for evading firewalls
-                                and
-                                IDSs.</p>
-                            <p><strong>Specifying Targets:</strong> Specify target hosts using names, IP addresses,
-                                files,
-                                or even randomly generated ones.</p>
-                            <p><strong>Miscellaneous Options:</strong> -6 for IPv6 scanning, -r for randomizing port
-                                scan
-                                order, -Pn to skip ping test.</p>
-
-                        </div>
-                        <button onclick="window.location.href='./Result.html'"
-                            class="mt-3 bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded">
-                            Run the generated Command
-                        </button>
-                    </div>
 
                     <!-- Form Section -->
-
                     <div id="formSection" class=" w-full md:w-7/12 bg-gray-900 p-4">
                         <form onsubmit="generateNmapCommand(); return false;"
                             class="w-full m-auto rounded-lg shadow-xl no-scrollbar">
@@ -716,12 +656,80 @@
 
 
                     </div>
+                    <div id="commandSection" class="w-full md:w-5/12 p-4 md:p-6 pb-2 commandcomponent ">
+                        <h2 class="text-2xl font-semibold mb-4">Generated Command</h2>
+                        <pre id="commandResult" class="whitespace-pre-wrap"> Create a Command using the form</pre>
+                        <div class="flaginfo">
+
+                            <h1>Nmap Port Scanning Overview</h1>
+                            <p>Nmap supports various port scanning methods to discover open ports and services on target
+                                machines. Here's a summary of key scanning methods:</p>
+                            <ul>
+                                <li><strong>TCP SYN (Stealth) Scan (-sS):</strong> Fastest scan for popular TCP ports.
+                                    Stealthier than connect scan, works on all TCP stacks.</li>
+                                <li><strong>TCP Connect Scan (-sT):</strong> Uses system call to scan machines.
+                                    Preferred
+                                    for unprivileged Unix users and IPv6 targets.</li>
+                                <li><strong>UDP Scan (-sU):</strong> Scans UDP ports to find security vulnerabilities.
+                                </li>
+                                <li><strong>TCP FIN, NULL, and Xmas Scans (-sF, -sN, -sX):</strong> Special purpose
+                                    scans
+                                    for bypassing firewalls. Some systems, especially Windows, may not exhibit expected
+                                    behavior.</li>
+                                <li><strong>TCP ACK Scan (-sA):</strong> Maps out firewall rulesets. Cannot distinguish
+                                    open
+                                    from closed ports.</li>
+                                <li><strong>TCP Window Scan (-sW):</strong> Similar to ACK scan, detects open vs. closed
+                                    ports on certain machines.</li>
+                                <li><strong>TCP Maimon Scan (-sM):</strong> Firewall-evading scan, similar to FIN scan
+                                    with
+                                    ACK flag. Works against fewer systems than FIN scan.</li>
+                                <li><strong>TCP Idle Scan (-sI &lt;zombie host&gt;):</strong> Stealthiest scan
+                                    exploiting
+                                    trusted IP address relationships. Slow and complex.</li>
+                                <li><strong>IP Protocol Scan (-sO):</strong> Determines supported IP protocols (TCP,
+                                    ICMP,
+                                    IGMP, etc.).</li>
+                                <li><strong>TCP FTP Bounce Scan (-b &lt;FTP bounce proxy&gt;):</strong> Deprecated
+                                    method
+                                    tricking FTP servers for port scans.</li>
+                            </ul>
+                            <p><strong>Port Selection Examples:</strong> Specify ports with -p option using numbers,
+                                names,
+                                ranges, or protocols.</p>
+                            <p><strong>Timing-related Options:</strong> Control scan times with options like -T0 through
+                                -T5, --min-rtt-timeout, --max-rtt-timeout, etc.</p>
+                            <p><strong>Output Format and Verbosity Options:</strong> Choose output format with -oN, -oG,
+                                -oX. Increase verbosity with -v or debugging with -d.</p>
+                            <p><strong>Firewall and IDS Evasion Options:</strong> Numerous options for evading firewalls
+                                and
+                                IDSs.</p>
+                            <p><strong>Specifying Targets:</strong> Specify target hosts using names, IP addresses,
+                                files,
+                                or even randomly generated ones.</p>
+                            <p><strong>Miscellaneous Options:</strong> -6 for IPv6 scanning, -r for randomizing port
+                                scan
+                                order, -Pn to skip ping test.</p>
+
+                        </div>
+                        <button onclick="window.location.href='./Result.html'"
+                            class="mt-3 bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded">
+                            Run the generated Command
+                        </button>
+                    </div>
+
                 </div>
+            </main>
+
+            <footer style="background-color: #1f1d1d;" class="text-white text-center p-4">
+                <p>&copy; 2024 PortProwler. All rights reserved.</p>
+            </footer>
+
         </div>
-        </main>
 
     </div>
-    </div>
+
+
 
     <script>
         // JavaScript to handle expanding sidebar on topmost icon click
@@ -808,7 +816,8 @@
 
             // Display the Nmap command or execute it as needed
             console.log('Nmap Command:', nmapCommand);
-
+           // write nmapcommand to cookie
+            document.cookie = "nmapCommand=" + nmapCommand;
 
 
             var element = document.getElementById('commandResult');
@@ -830,9 +839,6 @@
         }
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
-    <footer style="background-color: #1f1d1d;" class="text-white text-center p-4">
-        <p>&copy; 2024 PortProwler. All rights reserved.</p>
-    </footer>
 
 </body>
 

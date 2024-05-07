@@ -24,21 +24,7 @@
         list-style-type: square;
         margin-bottom: 5px;
     }
-    /* Loading animation CSS */
-    @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
 
-        #loading {
-            border: 6px solid #f3f3f3;
-            border-top: 6px solid #0fe11d;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
     .header {
         font-family: "Archivo Black", sans-serif;
         font-weight: 400;
@@ -232,30 +218,12 @@ pre {
     overflow: none;
     text-align: justify;
 }
-.terminal_prompt span {
-  margin-left: 4px;
-}
-
-.terminal_user {
-  color: #1eff8e;
-}
-
-.terminal_location {
-  color: #4878c0;
-}
-
-.terminal_bling {
-  color: #dddddd;
-}
 
 @media screen and (max-width: 600px) {
     pre{
         text-align: left;
     }
 }
-pre {
-        white-space: pre-wrap;
-    }
 </style>
 
 <body class="overflow-hidden no-scrollbar">
@@ -355,35 +323,26 @@ pre {
                 <div class="sm:flex-row md:flex overflow-x-hidden overflow-y-auto bg-gray-100 m-auto no-scrollbar ">
 
                     <!-- Form Section -->
-                    <div id="formSection" class="sm:w-full md:w-3/12 bg-gray-900 p-4">
+                    <div id="formSection" class=" w-full md:w-4/12 bg-gray-900 p-4">
 
 
 
                     </div>
-                    <div id="commandSection" class="sm:w-full md:w-9/12 p-4 md:p-6 pb-2 commandcomponent ">
+                    <div id="commandSection" class="w-full md:w-8/12 p-4 md:p-6 pb-2 commandcomponent ">
                         <h1>Nmap Scan Results</h1>
-                            <div class="flex justify-between items-cente p-2 pb-0" style="background: linear-gradient(to right, #78716F, #7F6A98, #6B5E7C);">
-                              <div class="flex space-x-2 text-red-500">
-                                <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                              </div>
-                              <p class="text-sm">bash</p>
-                            </div>
-                            <div class="m-auto  bg-black text-white p-6 pt-0 w-full  font-mono">
-                            <div class="mt-4">
-                              <div class="terminal_prompt">
-                                <span class="terminal_user">00Kubi@admin:</span>
-                                <span class="terminal_location">~</span>
-                                <span class="terminal_bling">$</span>
-                                <span id="com" style="color: white;font-weight: bolder;"></span>
-                               </div>
-                                <div id="load"class="animate-ping w-4/12 h-4/12 m-auto"><img src="drg.png" alt="loading......"></div>
-                                <pre id="res"></pre>
-                            </div>
-                          </div>
-                        <pre id="comres">
 
+                        <pre>
+                            scanning in progress |||||||||||||||||||...............
+                            Starting Nmap 7.91 ( https://nmap.org ) at 2024-02-07 15:30 UTC
+                            Nmap scan report for example.com (192.168.1.1)
+                            Host is up (0.0023s latency).
+                            Not shown: 998 closed ports
+                            PORT     STATE SERVICE
+                            22/tcp   open  ssh
+                            80/tcp   open  http
+                            443/tcp  open  https
+                    
+                            Nmap done: 1 IP address (1 host up) scanned in 0.12 seconds
                         </pre>
                     
                     </div>
@@ -395,10 +354,9 @@ pre {
             </footer>
         
         </div>
-
     </div>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
+
+    <script>
         // JavaScript to handle expanding sidebar on topmost icon click
         const sidebar = document.getElementById('sidebar');
         const topIcon = document.getElementById('icon1');
@@ -412,61 +370,25 @@ pre {
             labels.forEach(label => label.classList.toggle('opacity-0'));
             
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            const pre = document.querySelector('pre');
+            const text = pre.textContent.trim();
+            pre.textContent = '';
 
-        // Get nmapCommand from cookie
-        let nmapCommand = document.cookie.split(';').find(c => c.includes('nmapCommand'));
-        if (nmapCommand) {
-            nmapCommand = nmapCommand.split('=')[1];
-        } else {
-            nmapCommand = "nmap nmap.org";
-        }
+            let index = 0;
 
-        // Make POST request
-        fetch('/run_scan', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ nmap_command: nmapCommand })
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Response:', data);
-            //get loadelement and hide it 
-            document.getElementById('load').style.display = 'none';
-            // Display the response in the output div
-            //extract command and result from data, and store in seprate variables
-            let command = data.command;
-            let result = data.result;
-            document.getElementById('com').innerHTML = command;
-            document.getElementById('res').innerHTML = result;
-            
-        })
-        .catch(error => console.error('Error:', error));
-
-        // Typing animation
-        const pre = document.querySelector('pre');
-        const text = pre.textContent.trim();
-        //check if text is undefined or empty
-        if (!text || text === 'undefined' || text === 'null') {
-            text = '';
-        }
-        pre.textContent = '';
-
-        let index = 0;
-
-        function type() {
-            pre.textContent += text[index];
-            index++;
-            if (index < text.length) {
-                setTimeout(type, 30); 
+            function type() {
+                pre.textContent += text[index];
+                index++;
+                if (index < text.length) {
+                    setTimeout(type, 30); 
+                }
             }
-        }
 
-        type();
-    });
-</script>
-    
+            type();
+        });
+
+    </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
 
 
